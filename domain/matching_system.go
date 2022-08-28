@@ -23,7 +23,7 @@ func (m *MatchingSystem) Match(i Individual) Individual {
 func getMembersExceptSelf(i Individual, members []Individual) []Individual {
 	exceptIndex := slices.IndexFunc(members, func(m Individual) bool { return m.GetId() == i.GetId() })
 
-	membersExcpetSelf := members
+	membersExcpetSelf := append([]Individual(nil), members...)
 	membersExcpetSelf[exceptIndex] = membersExcpetSelf[len(membersExcpetSelf)-1]
 	membersExcpetSelf = membersExcpetSelf[:len(membersExcpetSelf)-1]
 
